@@ -17,13 +17,13 @@
     <div class="container">
       <header class="headerClass">
         <h1 class="logo">
-          <a href="#" class="homepageLinkClass">
+          {{#link-to "index" class="homepageLinkClass"}}
             SAMOCA - San Angelico Museum of Contemporary Art
-          </a>
+          {{/link-to}}
         </h1>
       </header>
       <nav class="navClass centerText">
-        <a href="#" class="btn btn-primary">About</a>
+        {{#link-to "about" class="btn btn-primary"}}About{{/link-to}}
         <a href="#" class="btn btn-primary">Collections</a>
         <a href="#" class="btn btn-primary">Exhibits</a>
         <a href="#" class="btn btn-primary">Visitor Notes</a>
@@ -53,6 +53,8 @@
       </div>
       <div class="homePageDiv homePageCopy">
         SAMOCA (San Angelico Museum of Contemporary Art) is a museum with a focus on modern art from the last 75 years. Since its inception in 1973, the museum has been the leader in representing modern contemporary art and design. The museum is located in the heart of Ventura, California, ninety miles north of Los Angeles.
+          <br><br>
+          {{#link-to "about"}}<strong>learn more &raquo;</strong>{{/link-to}}
       </div>
     </section>
   </script>
