@@ -24,7 +24,7 @@
       </header>
       <nav class="navClass centerText">
         {{#link-to "about" class="btn btn-primary"}}About{{/link-to}}
-        <a href="#" class="btn btn-primary">Collections</a>
+        {{#link-to "collections" class="btn btn-primary"}}Collections{{/link-to}}
         <a href="#" class="btn btn-primary">Exhibits</a>
         <a href="#" class="btn btn-primary">Visitor Notes</a>
       </nav>
@@ -81,6 +81,23 @@
       <p>
         Our collections are designed to highlight the importance of contemporary art within modern society. Important influences, such as popular music, cinema, and current world events, are reflected in our halls. Through our diverse collections, events, and with the support of our patrons and volunteers, the museum helps to promote the importance of modern art around the world.
       </p>
+    </section>
+  </script>
+
+<!--
+    =================================================================
+    "COLLECTIONS" COMPONENT TEMPLATE: displays the Collection content
+    =================================================================
+  -->
+
+  <script type="text/x-handlebars" id="components/single-collection">
+    <h2>Collections</h2>
+    This is the SAMOCA Collections Page
+  </script>
+
+  <script type="text/x-handlebars" id="collections">
+    <section class="pageClass clearfix">
+      {{single-collection}}
     </section>
   </script>
 
