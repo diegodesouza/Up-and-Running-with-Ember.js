@@ -58,6 +58,20 @@ App.ExhibitRoute = Ember.Route.extend({
   }
 });
 
+// Array controller...decorates all model data
+App.ExhibitsController = Ember.ArrayController.extend({
+  totalExhibits: function(){
+    return this.get("model.length");
+  }.property("@each")
+});
+
+// Object controller...decorates a single piece of model data
+App.ExhibitController = Ember.ObjectController.extend({
+  exhibitTitle: function(){
+    return this.get("title") + " by " + this.get("artist_name");
+  }.property("artist_name", "title")
+});
+
 // Placeholder model data
 var exhibits = [{
   id: "1",
