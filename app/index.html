@@ -91,20 +91,21 @@
   -->
 
     <script type="text/x-handlebars" id="components/single-collection">
-      <strong>{{title}}</strong>
-      <br>
-      {{copy}}
-      <br><br>
+      <h3>{{title}}</h3>
+      <img {{bind-attr src=image}} class="collectionsImage" align="left">
+      {{yield}}
     </script>
 
-    <script type="text/x-handlebars" id="collections">
-      <section class="pageClass clearfix">
-        <h2>Collections</h2>
-        {{#each}}
-          {{single-collection title=title copy=copy}}
-        {{/each}}
-      </section>
-    </script>
+   <script type="text/x-handlebars" id="collections">
+    <section class="pageClass clearfix">
+      <h2>Collections</h2>
+      {{#each}}
+        {{#single-collection title=title image=image}}
+          {{copy}}
+        {{/single-collection}}
+      {{/each}}
+    </section>
+  </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
