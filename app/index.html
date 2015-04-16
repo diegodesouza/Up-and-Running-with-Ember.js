@@ -25,7 +25,7 @@
       <nav class="navClass centerText">
         {{#link-to "about" class="btn btn-primary"}}About{{/link-to}}
         {{#link-to "collections" class="btn btn-primary"}}Collections{{/link-to}}
-        <a href="#" class="btn btn-primary">Exhibits</a>
+        {{#link-to "exhibits" class="btn btn-primary"}}Exhibits{{/link-to}}
         <a href="#" class="btn btn-primary">Visitor Notes</a>
       </nav>
       <main class="mainClass cf">{{outlet}}</main>
@@ -105,6 +105,30 @@
         {{/single-collection}}
       {{/each}}
     </section>
+  </script>
+
+    <!--
+    ===================================================
+    "EXHIBITS" PAGE/TEMPLATE: displays all the exhibits
+    ===================================================
+  -->
+  <script type="text/x-handlebars" id="exhibits">
+    <div class="pageClass">
+      <section class="exhibitSection cf">
+        <h2>Exhibits</h2>
+        This is where ALL our exhibits will be listed
+      </section>
+    </div>
+  </script>
+
+    <!--
+    =========================================================
+    "EXHIBIT" PAGE/TEMPLATE: lists only one exhibit at a time
+    =========================================================
+  -->
+  <script type="text/x-handlebars" id="exhibit">
+    <article class="singleExhibitContent">
+    </article>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
