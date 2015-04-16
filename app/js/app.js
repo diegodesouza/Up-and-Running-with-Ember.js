@@ -31,3 +31,10 @@ App.CollectionsRoute = Ember.Route.extend({
     ];
   }
 });
+
+// Customize the Collections component
+App.SingleCollectionComponent = Ember.Component.extend({
+  tagName: "article",
+  classNames: ["collectionArticleClass cf"]
+});
+
