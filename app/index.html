@@ -118,7 +118,7 @@
       <section class="exhibitSection cf">
         <h2>Exhibits</h2>
         <div>
-          There are currently <strong><em>3</em></strong> exhibits running at SAMOCA...visit us and see them all!!!
+          There are currently <strong><em>{{totalExhibits}}</em></strong> exhibits running at SAMOCA...visit us and see them all!!!
         </div>
         <ul class="singleExhibitList cf">
         {{#each}}
@@ -146,7 +146,7 @@
 
   <script type="text/x-handlebars" id="exhibit">
     <article class="singleExhibitContent">
-    <h2></h2>
+    <h2>{{exhibitTitle}}</h2>
       <p>
         <img {{bind-attr src=image}} class="singleExhibitImage imageBorder" align="left" />
         {{exhibit_info}}
