@@ -44,6 +44,20 @@ App.SingleCollectionComponent = Ember.Component.extend({
  * CONTROLLERS CODE STARTS HERE
  */
 
+// Route for all Exhibits
+App.ExhibitsRoute = Ember.Route.extend({
+  model: function() {
+    return exhibits;
+  }
+});
+
+// Route for a single Exhibit
+App.ExhibitRoute = Ember.Route.extend({
+  model: function(params) {
+    return exhibits.findBy("id", params.exhibit_id);
+  }
+});
+
 // Placeholder model data
 var exhibits = [{
   id: "1",
