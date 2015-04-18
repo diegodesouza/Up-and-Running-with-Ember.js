@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>SAMOCA - San Angelico Museum of Contemporary Art</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>SAMOCA - San Angelico Museum of Contemporary Art</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-  <!--
-    DEFAULT APPLICATION TEMPLATE: This gets rendered in a browser as soon as "Ember.Application.create()" happens.
-  -->
+    <!--
+      DEFAULT APPLICATION TEMPLATE: This gets rendered in a browser as soon as "Ember.Application.create()" happens.
+    -->
 
-  <script type="text/x-handlebars">
-    <div class="container">
+    <script type="text/x-handlebars">
+<div class="container">
       <header class="headerClass">
         <h1 class="logo">
           {{#link-to "index" class="homepageLinkClass"}}
@@ -26,27 +26,27 @@
         {{#link-to "about" class="btn btn-primary"}}About{{/link-to}}
         {{#link-to "collections" class="btn btn-primary"}}Collections{{/link-to}}
         {{#link-to "exhibits" class="btn btn-primary"}}Exhibits{{/link-to}}
-        <a href="#" class="btn btn-primary">Visitor Notes</a>
+        {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
       </nav>
       <main class="mainClass cf">{{outlet}}</main>
       <footer class="footerClass centerText cf">
         <small>&copy; San Angelico Museum of Contemporary Art, 123 Main Street, Ventura, CA 12345 (800)555-1212</small>
       </footer>
     </div>
-  </script>
+    </script>
 
-  <!--
-    The app's entire page structure is above this comment line.
-    All of our single-page templates are below this comment line.
-  -->
+    <!--
+      The app's entire page structure is above this comment line.
+      All of our single-page templates are below this comment line.
+    -->
 
-  <!--
-    ====================================================
-    "HOME" PAGE TEMPLATE: displays the Home page content
-    ====================================================
-  -->
-  <script type="text/x-handlebars" data-template-name="index">
-    <section id="home" class="pageClass clearfix">
+    <!--
+      ====================================================
+      "HOME" PAGE TEMPLATE: displays the Home page content
+      ====================================================
+    -->
+    <script type="text/x-handlebars" data-template-name="index">
+<section id="home" class="pageClass clearfix">
       <h2 class="homepageHeader">Welcome to Samoca</h2>
       <div class="homePageDiv vertAlign">
         <img src="images/hero.jpg" class="imageBorder" />
@@ -57,16 +57,16 @@
           {{#link-to "about"}}<strong>learn more &raquo;</strong>{{/link-to}}
       </div>
     </section>
-  </script>
+    </script>
 
-  <!--
-    =================================================
-    "ABOUT" PAGE TEMPLATE: displays the About content
-    =================================================
-  -->
+    <!--
+      =================================================
+      "ABOUT" PAGE TEMPLATE: displays the About content
+      =================================================
+    -->
 
-  <script type="text/x-handlebars" id="about">
-    <section id="about" class="pageClass">
+    <script type="text/x-handlebars" id="about">
+<section id="about" class="pageClass">
       <h2>About Us</h2>
       <h3 class="aboutTagLine">Celebrating the Best of Modern Art</h3>
       <img src="images/about-hero.jpg" alt="About SAMOCA" align="left" class="aboutImage imageBorder">
@@ -81,22 +81,22 @@
         Our collections are designed to highlight the importance of contemporary art within modern society. Important influences, such as popular music, cinema, and current world events, are reflected in our halls. Through our diverse collections, events, and with the support of our patrons and volunteers, the museum helps to promote the importance of modern art around the world.
       </p>
     </section>
-  </script>
+    </script>
 
-  <!--
-    ============================================================
-    "COLLECTIONS" PAGE/TEMPLATE: displays the Collection content
-    ============================================================
-  -->
+    <!--
+      ============================================================
+      "COLLECTIONS" PAGE/TEMPLATE: displays the Collection content
+      ============================================================
+    -->
 
     <script type="text/x-handlebars" id="components/single-collection">
-      <h3>{{title}}</h3>
+<h3>{{title}}</h3>
       <img {{bind-attr src=image}} class="collectionsImage" align="left">
       {{yield}}
     </script>
 
     <script type="text/x-handlebars" id="collections">
-      <section class="pageClass clearfix">
+<section class="pageClass clearfix">
         <h2>Collections</h2>
         {{#each}}
           {{#single-collection title=title image=image}}
@@ -107,13 +107,13 @@
     </script>
 
 
-  <!--
-    ===================================================
-    "EXHIBITS" PAGE/TEMPLATE: displays all the exhibits
-    ===================================================
-  -->
-  <script type="text/x-handlebars" id="exhibits">
-    <div class="pageClass">
+    <!--
+      ===================================================
+      "EXHIBITS" PAGE/TEMPLATE: displays all the exhibits
+      ===================================================
+    -->
+    <script type="text/x-handlebars" id="exhibits">
+<div class="pageClass">
       <section class="exhibitSection cf">
         <h2>Exhibits</h2>
         <div>
@@ -134,30 +134,46 @@
         <div>{{outlet}}</div>
       </section>
     </div>
-  </script>
+    </script>
 
 
-  <!--
-    =========================================================
-    "EXHIBIT" PAGE/TEMPLATE: lists only one exhibit at a time
-    =========================================================
-  -->
-  <script type="text/x-handlebars" id="exhibit">
-    <article class="singleExhibitContent">
+    <!--
+      =========================================================
+      "EXHIBIT" PAGE/TEMPLATE: lists only one exhibit at a time
+      =========================================================
+    -->
+    <script type="text/x-handlebars" id="exhibit">
+<article class="singleExhibitContent">
     <h2>{{exhibitTitle}}</h2>
       <p>
         <img {{bind-attr src=image}} class="singleExhibitImage imageBorder" align="left" />
         {{exhibit_info}}
       </p>
     </article>
+    </script>
+
+  <!--
+    ===============================================
+    "NOTE" PAGE/TEMPLATE: displays the Note content
+    ===============================================
+  -->
+
+  <script type="text/x-handlebars" id="notes">
+    <article class="pageClass">
+      <h2>Visitor Notes</h2>
+      <textarea id="newEntry" placeholder="create a new note" rows="10" cols="50"></textarea>
+      <p class="btnVolunteerParagraph">
+        <button class="btn btn-info">Save this note</button>
+      </p>
+    </article>
   </script>
 
-  <script src="js/libs/jquery-1.10.2.js"></script>
-  <script src="js/libs/handlebars-1.1.2.js"></script>
-  <script src="js/libs/ember.min.js"></script>
-  <script src="js/libs/ember-data.js"></script>
-  <script src="js/libs/localstorage_adapter.js"></script>
-  <script src="js/app.js"></script>
+    <script src="js/libs/jquery-1.10.2.js"></script>
+    <script src="js/libs/handlebars-1.1.2.js"></script>
+    <script src="js/libs/ember.min.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="js/libs/localstorage_adapter.js"></script>
+    <script src="js/app.js"></script>
 
-</body>
+  </body>
 </html>
