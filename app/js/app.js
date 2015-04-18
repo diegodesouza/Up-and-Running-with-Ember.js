@@ -79,3 +79,11 @@ App.ExhibitController = Ember.ObjectController.extend({
     return this.get("title") + " by " + this.get("artist_name");
   }.property("artist_name", "title")
 });
+
+/*
+ * NOTES CODE STARTS HERE
+ */
+
+ App.Note = DS.Model.extend({
+  copy: DS.attr()
+});
