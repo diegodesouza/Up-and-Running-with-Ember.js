@@ -161,10 +161,15 @@
   <script type="text/x-handlebars" id="notes">
     <article class="pageClass">
       <h2>Visitor Notes</h2>
-      <textarea id="newEntry" placeholder="create a new note" rows="10" cols="50"></textarea>
+      {{textarea placeholder="create a new note" value=noteText rows=10 cols=50}}
       <p class="btnVolunteerParagraph">
-        <button class="btn btn-info">Save this note</button>
+        <button {{action "newNote"}} class="btn btn-info">Save this note</button>
       </p>
+      {{#each}}
+        <div class="singleEntry">
+         {{copy}}
+        </div>
+      {{/each}}
     </article>
   </script>
 

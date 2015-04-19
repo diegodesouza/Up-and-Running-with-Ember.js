@@ -87,3 +87,33 @@ App.ExhibitController = Ember.ObjectController.extend({
  App.Note = DS.Model.extend({
   copy: DS.attr()
 });
+
+
+App.NotesRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find("note");
+  }
+});
+
+App.NotesController = Ember.ArrayController.extend({
+  actions: {
+    newNote: function() {
+      var copy = this.get("noteText");
+      if (!copy) {
+        return false;
+      }
+
+      var note = this.store.createRecord("note", {
+        copy: copy
+      });
+
+      this.set("noteText", "");
+      note.save();
+    }
+  }
+});
+
+App.ApplicationAdapter = DS.LSAdapter.extend({
+  namespace: "samocaNotes"
+});
+
