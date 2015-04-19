@@ -55,7 +55,7 @@ App.ExhibitsRoute = Ember.Route.extend({
 
 // Route for a single Exhibit
 App.ExhibitRoute = Ember.Route.extend({
-   model: function(params) {
+  model: function(params) {
     return $.getJSON("js/exhibits.json").then(function(data) {
       var modelId = params.exhibit_id - 1;
       data.exhibits.title = data.exhibits[modelId].title;
@@ -64,7 +64,8 @@ App.ExhibitRoute = Ember.Route.extend({
       data.exhibits.image = data.exhibits[modelId].image;
       return data.exhibits;
     });
-  }});
+  }
+});
 
 // Array controller...decorates all model data
 App.ExhibitsController = Ember.ArrayController.extend({
@@ -88,7 +89,6 @@ App.ExhibitController = Ember.ObjectController.extend({
   copy: DS.attr()
 });
 
-
 App.NotesRoute = Ember.Route.extend({
   model: function() {
     return this.store.find("note");
@@ -98,7 +98,7 @@ App.NotesRoute = Ember.Route.extend({
 App.NotesController = Ember.ArrayController.extend({
   actions: {
     newNote: function() {
-      var copy = this.get("noteText");
+      var copy = this.get("newNote");
       if (!copy) {
         return false;
       }
@@ -107,7 +107,7 @@ App.NotesController = Ember.ArrayController.extend({
         copy: copy
       });
 
-      this.set("noteText", "");
+      this.set("newNote", "");
       note.save();
     }
   }
@@ -121,11 +121,16 @@ App.NoteController = Ember.ObjectController.extend({
     },
     saveNewNote: function() {
       this.set("isEditing", false);
+
       if (!(this.get("model.copy"))) {
         this.send("deleteNote");
       } else {
         this.get("model").save();
       }
+    },
+     deleteNote: function() {
+      this.get("model").deleteRecord();
+      this.get("model").save();
     }
   }
 });
@@ -141,4 +146,3 @@ Ember.Handlebars.helper("update-note", App.EditNote);
 App.ApplicationAdapter = DS.LSAdapter.extend({
   namespace: "samocaNotes"
 });
-
