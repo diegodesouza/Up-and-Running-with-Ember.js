@@ -113,6 +113,31 @@ App.NotesController = Ember.ArrayController.extend({
   }
 });
 
+App.NoteController = Ember.ObjectController.extend({
+  isEditing: false,
+  actions: {
+    editNote: function() {
+      this.set("isEditing", true);
+    },
+    saveNewNote: function() {
+      this.set("isEditing", false);
+      if (!(this.get("model.copy"))) {
+        this.send("deleteNote");
+      } else {
+        this.get("model").save();
+      }
+    }
+  }
+});
+
+App.EditNote = Ember.TextArea.extend({
+  attributeBindings: ["cols", "rows"],
+  cols: 50,
+  rows: 10
+});
+
+Ember.Handlebars.helper("update-note", App.EditNote);
+
 App.ApplicationAdapter = DS.LSAdapter.extend({
   namespace: "samocaNotes"
 });
